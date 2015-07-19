@@ -114,9 +114,7 @@ var waterfall = {
             pics.forEach(function(pic) {
                 var $item = $(
                     '<li class="pic-item">' +
-                        '<div class="pic">' +
-                            '<img src="' + pic.thumbnail + '" data-large-src="' + pic.large + '">' +
-                        '</div>' +
+                        '<img src="' + pic.thumbnail + '" data-large-src="' + pic.large + '">' +
                     '</li>'
                 );
                 $list.append($item);
