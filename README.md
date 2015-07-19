@@ -13,15 +13,15 @@
 - [EditorConfig](http://editorconfig.org/#download)
 - [Git 配置](https://github.com/cssmagic/blog/issues/22)
 
-        [core]
-            autorcrlf = false
-            safecrlf = true
+      [core]
+          autorcrlf = false
+          safecrlf = true
 
 ## 发布方式
 
-        git checkout gh-pages
-        git merge master --no-ff
-        git push origin gh-pages
+    git checkout gh-pages
+    git merge master
+    git push origin gh-pages
 
 ## 访问地址
 
