@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>图片管理器</title>
+
+    <!-- 比起 normalize.css 我更喜欢用 sanitize.css，不过这样一来牺牲了 IE 兼容性 -->
+    <link rel="stylesheet" href="https://rawgit.com/jonathantneal/sanitize.css/master/dist/sanitize.css">
+
+    <link rel="stylesheet" href="css/view.css">
+</head>
+<body>
+    <div class="content">
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item">
+                    <a href="#">全部</a>
+                </li>
+                <li class="nav-item current">
+                    <a href="#">人物</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">风光</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">私房</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">纪实</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">微距</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">野生动物</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="main">
+            <ul class="pictures"></ul>
+        </section>
+
+        <nav class="pagination">
+            <ul></ul>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "photo-explorer",
+  "version": "0.1.0",
+  "description": "A web app for photo viewing, managing and editing.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ife-liuguang/photo-explorer.git"
+  },
+  "author": "sodatea",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/ife-liuguang/photo-explorer/issues"
+  },
+  "homepage": "https://github.com/ife-liuguang/photo-explorer#readme"
+}
