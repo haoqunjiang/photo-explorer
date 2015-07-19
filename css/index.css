@@ -53,26 +53,125 @@
     color: #fff;
 }
 
-
 .main {
-    position: relative;
-    top: 45px;
+    position: relative; /* 为了让 .pic-item 相对于 .main 绝对定位 */
+    top: 45px;  /* 顶栏高度 */
 
-    margin: 3px auto 0;
+    margin: 3px auto 0; /* 与顶栏稍微保持点间隙，并水平居中 */
 }
 
 .pic-item {
+    font-size: 0;   /* 消灭 HTML 空白符带来的间隙 */
+
     display: inline-block;
     float: left;
 
     padding: 3px;
 
-    font-size: 0;   /* 消灭 HTML 空白符带来的间隙 */
-
     list-style: none;
 }
 
-
 .pic-item img {
     width: 345px;
+
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(0,0,0,0.8);
+}
+
+.hidden {
+    display: none;
+}
+
+/* 水平垂直居中 */
+.gallery {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    margin-right: -50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.gallery-nav {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+
+    height: 100%;
+
+    cursor: pointer;
+
+    /* 操作系统中，double click 是选中，所以点快了后页面上会出现选中区域，因此设置了这个属性 */
+    -webkit-user-select: none;
+}
+
+.gallery-prev {
+    left: 0;
+
+    width: 50%;
+}
+
+.gallery-next {
+    right: 0;
+
+    width: 50%;
+}
+
+.gallery-nav-arrow {
+    line-height: 200px;
+
+    position: absolute;
+    top: 50%;
+
+    width: 50px;
+    height: 200px;
+
+    transform: translateY(-50%);
+    text-align: center;
+
+    opacity: 0.3;
+}
+
+.gallery-nav:hover .gallery-nav-arrow {
+    opacity: 1;
+}
+
+.gallery-prev .gallery-nav-arrow {
+    left: -50px;
+}
+
+.gallery-next .gallery-nav-arrow {
+    right: -50px;
+}
+
+.gallery-close {
+    position: absolute;
+    top: 0;
+    right: -50px;
+
+    width: 50px;
+
+    cursor: pointer;
+    text-align: center;
+
+    opacity: 0.3;
+}
+
+.gallery-close:hover {
+    opacity: 1;
+}
+
+.gallery-nav-arrow .iconfont,
+.gallery-close .iconfont {
+    color: #fff;
 }

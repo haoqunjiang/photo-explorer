@@ -39,6 +39,7 @@
                 </li>
             </ul>
         </nav>
+
         <section class="main">
             <ul class="pic-list">
                 <li class="pic-item">
@@ -117,6 +118,29 @@
                 </li>
             </ul>
         </section>
+    </div>
+
+    <!-- 模仿了 Twitter 的结构 -->
+    <div class="overlay hidden"></div>
+    <div class="gallery hidden">
+        <button type="button" class="gallery-close">
+            <i class="iconfont icon-close" style="font-size: 30px; font-weight: bold"></i>
+        </button>
+
+        <div class="gallery-picture">
+            <!-- 此处的 img 标签由 js 填充 -->
+        </div>
+
+        <div class="gallery-nav gallery-prev">
+            <span class="gallery-nav-arrow">
+                <i class="iconfont icon-back" style="font-size: 24px"></i>
+            </span>
+        </div>
+        <div class="gallery-nav gallery-next">
+            <span class="gallery-nav-arrow">
+                <i class="iconfont icon-right" style="font-size: 24px"></i>
+            </span>
+        </div>
     </div>
 
     <script src="js/index.js"></script>
