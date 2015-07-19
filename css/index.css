@@ -67,9 +67,12 @@
 
     padding: 3px;
 
+    font-size: 0;   /* 消灭 HTML 空白符带来的间隙 */
+
     list-style: none;
 }
 
-.pic > img {
+
+.pic-item img {
     width: 345px;
 }
