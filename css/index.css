@@ -52,3 +52,24 @@
 .current a {
     color: #fff;
 }
+
+
+.main {
+    position: relative;
+    top: 45px;
+
+    margin: 3px auto 0;
+}
+
+.pic-item {
+    display: inline-block;
+    float: left;
+
+    padding: 3px;
+
+    list-style: none;
+}
+
+.pic > img {
+    width: 345px;
+}

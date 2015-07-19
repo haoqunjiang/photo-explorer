@@ -7,7 +7,9 @@
     <!-- 比起 normalize.css 我更喜欢用 sanitize.css，不过这样一来牺牲了 IE 兼容性 -->
     <link rel="stylesheet" href="https://rawgit.com/jonathantneal/sanitize.css/master/dist/sanitize.css">
 
-    <link rel="stylesheet" href="css/view.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
     <div class="content">
@@ -16,10 +18,10 @@
                 <li class="nav-item">
                     <a href="#">全部</a>
                 </li>
-                <li class="nav-item current">
+                <li class="nav-item">
                     <a href="#">人物</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item current">
                     <a href="#">风光</a>
                 </li>
                 <li class="nav-item">
@@ -38,12 +40,135 @@
         </nav>
 
         <section class="main">
-            <ul class="pictures"></ul>
+            <ul class="pic-list">
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww4.sinaimg.cn/mw690/921c1cdagw1eu888voqsoj20t60jgq7v.jpg" data-large-src="http://ww3.sinaimg.cn/large/921c1cdagw1eu888voqsoj20t60jgq7v.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww2.sinaimg.cn/mw690/921c1cdagw1eu88ddykqgj20t60m842c.jpg" data-large-src="http://ww1.sinaimg.cn/large/921c1cdagw1eu88ddykqgj20t60m842c.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww4.sinaimg.cn/mw690/921c1cdagw1eu889ye6xpj20t60jgdke.jpg" data-large-src="http://ww2.sinaimg.cn/large/921c1cdagw1eu889ye6xpj20t60jgdke.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww1.sinaimg.cn/mw690/921c1cdagw1eu88g46rhcj20t60jggrl.jpg" data-large-src="http://ww4.sinaimg.cn/large/921c1cdagw1eu88g46rhcj20t60jggrl.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww2.sinaimg.cn/mw690/921c1cdagw1eu88goq05wj20t60jgtek.jpg" data-large-src="http://ww1.sinaimg.cn/large/921c1cdagw1eu88goq05wj20t60jgtek.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww3.sinaimg.cn/mw690/921c1cdagw1eu88hif4fij20t60m8n10.jpg" data-large-src="http://ww1.sinaimg.cn/large/921c1cdagw1eu88hif4fij20t60m8n10.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww3.sinaimg.cn/mw690/921c1cdagw1eu88i0r9cij20t60jgn18.jpg" data-large-src="http://ww3.sinaimg.cn/large/921c1cdagw1eu88i0r9cij20t60jgn18.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww4.sinaimg.cn/mw690/921c1cdagw1eu88ne9udrj20t614z7ds.jpg" data-large-src="http://ww1.sinaimg.cn/large/921c1cdagw1eu88ne9udrj20t614z7ds.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww3.sinaimg.cn/mw690/921c1cdagw1eu88mrfn44j20t60k5794.jpg" data-large-src="http://ww1.sinaimg.cn/large/921c1cdagw1eu88mrfn44j20t60k5794.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww1.sinaimg.cn/mw690/921c1cdagw1eu88o1zdhxj20t60goaf1.jpg" data-large-src="http://ww2.sinaimg.cn/large/921c1cdagw1eu88o1zdhxj20t60goaf1.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww3.sinaimg.cn/mw690/921c1cdagw1eu88oqphu7j20t60jg784.jpg" data-large-src="http://ww3.sinaimg.cn/large/921c1cdagw1eu88oqphu7j20t60jg784.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww2.sinaimg.cn/mw690/921c1cdagw1eu88pbnwbkj20t617rn68.jpg" data-large-src="http://ww1.sinaimg.cn/large/921c1cdagw1eu88pbnwbkj20t617rn68.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww3.sinaimg.cn/mw690/921c1cdagw1eu88q8h4zyj20t60jgmzk.jpg" data-large-src="http://ww1.sinaimg.cn/large/921c1cdagw1eu88q8h4zyj20t60jgmzk.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww3.sinaimg.cn/mw690/921c1cdagw1eu88qqvv8ej20t60jgte3.jpg" data-large-src="http://ww2.sinaimg.cn/large/921c1cdagw1eu88qqvv8ej20t60jgte3.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww4.sinaimg.cn/mw690/921c1cdagw1eu88rdhqhfj20t60jgwlw.jpg" data-large-src="http://ww4.sinaimg.cn/large/921c1cdagw1eu88rdhqhfj20t60jgwlw.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww4.sinaimg.cn/mw690/921c1cdagw1eu88rvdb2aj20t60jgqal.jpg" data-large-src="http://ww4.sinaimg.cn/large/921c1cdagw1eu88rvdb2aj20t60jgqal.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww2.sinaimg.cn/mw690/921c1cdagw1eu88svlefuj20t60jg76y.jpg" data-large-src="http://ww3.sinaimg.cn/large/921c1cdagw1eu88svlefuj20t60jg76y.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww2.sinaimg.cn/mw690/921c1cdagw1eu88td8qymj20t60jgjsa.jpg" data-large-src="http://ww4.sinaimg.cn/large/921c1cdagw1eu88td8qymj20t60jgjsa.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww4.sinaimg.cn/mw690/921c1cdagw1eu88twnpyqj20t60k5thm.jpg" data-large-src="http://ww2.sinaimg.cn/large/921c1cdagw1eu88twnpyqj20t60k5thm.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww1.sinaimg.cn/mw690/921c1cdagw1eu88ucdzc1j20t60m8ab6.jpg" data-large-src="http://ww3.sinaimg.cn/large/921c1cdagw1eu88ucdzc1j20t60m8ab6.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww4.sinaimg.cn/mw690/921c1cdagw1eu88usqt75j20t60m8gpk.jpg" data-large-src="http://ww1.sinaimg.cn/large/921c1cdagw1eu88usqt75j20t60m8gpk.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww3.sinaimg.cn/mw690/921c1cdagw1eu88v9jzf7j20t60jgaeh.jpg" data-large-src="http://ww3.sinaimg.cn/large/921c1cdagw1eu88v9jzf7j20t60jgaeh.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww4.sinaimg.cn/mw690/921c1cdagw1eu88vvnc2uj20t60jgjw7.jpg" data-large-src="http://ww4.sinaimg.cn/large/921c1cdagw1eu88vvnc2uj20t60jgjw7.jpg">
+                    </div>
+                </li>
+                <li class="pic-item">
+                    <div class="pic">
+                        <img src="http://ww3.sinaimg.cn/mw690/921c1cdagw1eu88xaq90jj20t60jg437.jpg" data-large-src="http://ww3.sinaimg.cn/large/921c1cdagw1eu88xaq90jj20t60jg437.jpg">
+                    </div>
+                </li>
+            </ul>
         </section>
 
         <nav class="pagination">
             <ul></ul>
         </nav>
     </div>
+
+    <script src="js/index.js"></script>
 </body>
 </html>
