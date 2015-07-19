@@ -6,7 +6,9 @@
 
 项目中的图片均来源于 [unsplash](https://unsplash.com/)。
 
-目前暂不考虑对旧浏览器的支持。
+## 兼容性
+
+IE 11+ / Safari 9+ 以及 Chrome / Firefox 的主流版本（主要是因为懒得写旧版 flexbox 标准的兼容以及 `-webkit-` 前缀）。
 
 ## 开发环境
 
@@ -26,3 +28,7 @@
 ## 访问地址
 
 - [浏览界面](https://ife-liuguang.github.io/photo-explorer/)
+
+## 图标使用
+
+因为不喜欢 [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) 的图标风格，所以在 [iconfont.cn](http://www.iconfont.cn/) 上随便选了一些来自手机淘宝的图标，做成了自定义 iconfont 用在这个项目里。

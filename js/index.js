@@ -2,6 +2,7 @@
 // 目前代码耦合太紧密，不利于单元测试，须想办法解耦
 
 var app = {
+    totalColumns: 0,
     columnOffsets: [],
 
     itemSelector: '.pic-item',
@@ -9,26 +10,46 @@ var app = {
     containerSelector: '.main',
 
     init: function() {
+        // 设置 content 区域宽度要在 DOMReady 时做，避免闪烁
+        // 事实上还是会有轻微闪烁，因为当第二次刷新页面时，图片已有缓存，在宽度设置好之前就已经显示出来了
+        $(this.setContentWidth.bind(this));
+
+        // 图片全部载入完成后进行重排
         $(window).on('load', this.waterfall.bind(this));
+
+        // 滚动到页面底部后触发「加载更多」事件
         $(window).on('scroll', this.onScrollHandler.bind(this));
+
+        var self = this;
+        $(window).on('resize', function() {
+            self.setContentWidth();
+            self.waterfall();
+        });
     },
 
-    // 页面初始化后进行重排
-    waterfall: function() {
-        var $items = $(this.itemSelector);
-
-        var itemWidth = $items.eq(0).outerWidth();  // 每张图片所在区域的宽度
-        var totalColumns = Math.floor($(window).width() / itemWidth);   // 列数
+    setContentWidth: function() {
+        var itemWidth = $(this.itemSelector).eq(0).outerWidth();  // 每张图片所在区域的宽度
+        this.totalColumns = Math.floor($(window).width() / itemWidth);  // 列数
 
         // container 水平居中
         var $container = $(this.containerSelector);
         $container.css({
-            // 计算 outerWidth 的时候会有稍许误差（结果是 349 但是渲染出来是 349.01，所以 +3 补偿一下）
-            width: itemWidth * totalColumns + 3
+            width: itemWidth * this.totalColumns
         });
+    },
+
+    // 将页面上的图片按瀑布流的方式重排
+    waterfall: function() {
+        var $items = $(this.itemSelector);
+
+        this.columnOffsets = []; // 需要重新初始化为空数组，因为如果页面 resize 了列数可能变化
 
         // 初始化各列的偏移量
-        for (var i = 0; i !== totalColumns; ++i) {
+        for (var i = 0; i !== this.totalColumns; ++i) {
+            var $item = $items.eq(i);
+
+            $item.css('position', 'static');    // 考虑到页面 resize 的情况，需重置 CSS
+
             this.columnOffsets[i] = {
                 top: 0,
                 left: $items.eq(i).position().left
@@ -65,6 +86,7 @@ var app = {
             return undefined;
         }
 
+        // 默认的比较方式是判断 a - b 的值
         if (!compare) {
             compare = function(a, b) { return a - b; };
         }
@@ -79,24 +101,23 @@ var app = {
 
     // 加载更多
     loadMore: function() {
-        var appendImage = this.appendImage.bind(this);
+        var $list = $(this.listSelector);
+        var setItemPosition = this.setItemPosition.bind(this);
 
         $.getJSON('mock/pictures.json', function(pics) {
-            pics.forEach(appendImage);
+            pics.forEach(function(pic) {
+                var $item = $(
+                    '<li class="pic-item">' +
+                        '<div class="pic">' +
+                            '<img src="' + pic.thumbnail + '" data-large-src="' + pic.large + '">' +
+                        '</div>' +
+                    '</li>'
+                );
+                $list.append($item);
+
+                setItemPosition($item);
+            });
         });
-    },
-
-    appendImage: function(pic) {
-        var $item = $(
-            '<li class="pic-item">' +
-                '<div class="pic">' +
-                    '<img src="' + pic.thumbnail + '" data-large-src="' + pic.large + '">' +
-                '</div>' +
-            '</li>'
-        );
-        $(this.listSelector).append($item);
-
-        this.setItemPosition($item);
     },
 
     hasReachedBottom: function() {
