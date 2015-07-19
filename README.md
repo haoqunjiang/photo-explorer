@@ -28,6 +28,7 @@ IE 11+ / Safari 9+ 以及 Chrome / Firefox 的主流版本（主要是因为懒�
 ## 访问地址
 
 - [浏览界面](https://ife-liuguang.github.io/photo-explorer/)
+- [服务器版](http://pic.eddie32.tk/)
 
 ## 图标使用
 
