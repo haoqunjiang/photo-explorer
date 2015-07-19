@@ -13,9 +13,9 @@
 - [EditorConfig](http://editorconfig.org/#download)
 - [Git 配置](https://github.com/cssmagic/blog/issues/22)
 
-      [core]
-          autorcrlf = false
-          safecrlf = true
+        [core]
+            autorcrlf = false
+            safecrlf = true
 
 ## 发布方式
 
