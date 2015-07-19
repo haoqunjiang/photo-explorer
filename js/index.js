@@ -1,6 +1,8 @@
+// TODO
+// 目前代码耦合太紧密，不利于单元测试，须想办法解耦
+
 var app = {
-    arrayOfHeights: [],
-    arrayOfPositionLeft: [],
+    columnOffsets: [],
 
     itemSelector: '.pic-item',
     listSelector: '.pic-list',
@@ -14,43 +16,65 @@ var app = {
     // 页面初始化后进行重排
     waterfall: function() {
         var $items = $(this.itemSelector);
-        var itemWidth = $items.eq(0).outerWidth();
-        var columns = Math.floor($(window).width() / itemWidth);
 
+        var itemWidth = $items.eq(0).outerWidth();  // 每张图片所在区域的宽度
+        var totalColumns = Math.floor($(window).width() / itemWidth);   // 列数
+
+        // container 水平居中
         var $container = $(this.containerSelector);
         $container.css({
             // 计算 outerWidth 的时候会有稍许误差（结果是 349 但是渲染出来是 349.01，所以 +3 补偿一下）
-            width: itemWidth * columns + 3
+            width: itemWidth * totalColumns + 3
         });
 
-        var self = this;
+        // 初始化各列的偏移量
+        for (var i = 0; i !== totalColumns; ++i) {
+            this.columnOffsets[i] = {
+                top: 0,
+                left: $items.eq(i).position().left
+            };
+        }
+
+        var setItemPosition = this.setItemPosition.bind(this);
         $items.each(function(index, item) {
-            var $item = $(item);
-
-            // 第一行，只记录高度，不作处理
-            if (index < columns) {
-                self.arrayOfHeights[index] = $item.outerHeight();
-                self.arrayOfPositionLeft[index] = $item.position().left;
-                return;
-            }
-
-            // 第二行以下，瀑布流布局，将图片加到高度最低的一列下方
-            self.setItemPosition($item);
+            setItemPosition($(item));
         });
     },
 
-    // 对于第二排以下的图片，设置合适的位置
+    // 将图片放置到高度最低的一列下方
     setItemPosition: function($item) {
-        var minHeight = Math.min.apply(undefined, this.arrayOfHeights);
-        var minHeightColumn = this.arrayOfHeights.indexOf(minHeight);
-
-        $item.css({
-            position: 'absolute',
-            top: minHeight,
-            left: this.arrayOfPositionLeft[minHeightColumn]
+        // 找出高度最低的列数（高度一样的话以第一个出现的为准）
+        var shortestColumn = this.findMinIndex(this.columnOffsets, function(a, b) {
+            return a.top - b.top;
         });
 
-        this.arrayOfHeights[minHeightColumn] += $item.outerHeight();
+        // 放置元素
+        $item.css({
+            position: 'absolute',
+            top: this.columnOffsets[shortestColumn].top,
+            left: this.columnOffsets[shortestColumn].left
+        });
+
+        // 该列的高度增加
+        this.columnOffsets[shortestColumn].top += $item.outerHeight();
+    },
+
+    findMinIndex: function(arr, compare) {
+        // 不是数组/空数组 就直接返回 undefined
+        if (!arr.length) {
+            return undefined;
+        }
+
+        if (!compare) {
+            compare = function(a, b) { return a - b; };
+        }
+
+        var minIndex = 0;
+        for (var i = 1; i !== arr.length; ++i) {
+            minIndex = (compare(arr[i], arr[minIndex]) < 0 ? i : minIndex);
+        }
+
+        return minIndex;
     },
 
     // 加载更多
