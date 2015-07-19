@@ -21,16 +21,17 @@
     position: relative;
 }
 
+/* 当前 tab 下向上的白色小三角 */
 .current::after {
     position: absolute;
     top: 40px;
-    left: 50%;
+    left: 50%;  /* 水平居中 */
 
     display: block;
 
     width: 0;
     height: 0;
-    margin-left: -5px;
+    margin-left: -5px;  /* 往左补偿元素一半的宽度 */
 
     content: " ";
 
@@ -39,6 +40,7 @@
     border-left: 5px solid transparent;
 }
 
+/* 链接文字样式 */
 .nav-item a {
     font-size: 14px;
     line-height: 45px;  /* line-height 与 navbar 高度一致，实现文字垂直居中 */
@@ -46,6 +48,7 @@
     color: #92a5bb;
 }
 
+/* 当前 tab 的链接文字是纯白的 */
 .current a {
     color: #fff;
 }
