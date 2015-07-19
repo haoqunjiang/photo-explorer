@@ -9,3 +9,20 @@
 目前暂不考虑对旧浏览器的支持。
 
 ## 开发环境
+
+- [EditorConfig](http://editorconfig.org/#download)
+- [Git 配置](https://github.com/cssmagic/blog/issues/22)
+
+        [core]
+            autorcrlf = false
+            safecrlf = true
+
+## 发布方式
+
+        git checkout gh-pages
+        git merge master --no-ff
+        git push origin gh-pages
+
+## 访问地址
+
+- [浏览界面](https://ife-liuguang.github.io/photo-explorer/)
